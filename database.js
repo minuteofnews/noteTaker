@@ -66,7 +66,12 @@ export async function getNote(id){
         `SELECT * 
         FROM notes
         WHERE id = ${id}`)
-    return result
+    
+    //add this snippet to only return the title and contents
+    //this logic destructures the note and only pulls relevant parts from it
+    const {title, contents} = result[0]
+
+    return {title, contents}
 }
 
 // //this version uses parameterized values and prevents SQLi
