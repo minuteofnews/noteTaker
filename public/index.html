@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Vulnerable Note Taker</title>
+    </head>
+<body>
+
+    <!-- THIS IS A COMMENT, enclose comment in between these two headers -->
+
+    <h1>Vulnerable Note Taker</h1>
+
+    <p>This is a note taking app. There is one deliberate vulnerability. There might be more, but I defintely planned only one.</p>
+
+    <p>Please enter a note, specify the title, or don't, then write your note!</p>
+
+    <form id="noteForm" action ="/notes" method="POST">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="contents">Contents:</label><br>
+        <input type="text" id="contents" name="contents"><br>
+        <input type="submit" value="Submit">
+    </form> <br>
+
+    <!-- 
+
+    document represents the entire webpage, the DOM
+    getElementById("<name>") selects the form element, in this case it was arbitrarily set as noteForm so we use that
+    this function returns a reference to the <form> element, in this case it's the form for submitting a note.
+    
+    .addEventListener(event, callback) attaches an event listener to an element
+    it "listens" until the event happens, then executes the callback function setTimeout
+
+    within setTimeout we have "this" it points to the form itself, here it is "noteform"
+    .reset() is a native JavaScript method that can be called to reset all form fields
+
+    without setTimeout() the form might reset too fast, prevent submission
+
+    setTimeout() is the wrapper function, while this.reset() is the actual callback function
+
+    -->
+
+    <script>
+        document.getElementById("noteForm").addEventListener("submit", function() {
+            setTimeout(() => {
+                this.reset(); // Clears all form fields
+            }, 100); // Small delay to allow submission
+        });
+    </script>
+
+    <form id= "id" action = "/notes/:id" method = "GET">
+        <label for = "ID"> Note ID: </label> <br>
+        <input type = "text" id = "id" name = "id"> <br>
+        <input type = "submit" value="Submit">
+    </form><br>
+
+    <script>
+        document.getElementById("id").addEventListener("submit", function() {
+            setTimeout(() => {
+                this.reset(); // Clears all form fields
+            }, 100); // Small delay to allow submission
+        });
+    </script>
+
+    <a href="/hello.html">???</a><br><br>
+
+    <form action ="/notes/reset" method="POST">
+        <button type = "submit">Reset Notes</button>
+    </form>
+
+</body>
+
+</html>
+
