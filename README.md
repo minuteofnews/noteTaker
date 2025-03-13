@@ -1,3 +1,3 @@
 # noteTaker
 deliberately vulnerable webApp<br>
-this is my first web app i created with SQLi in mind
+I am going to keep building on this to encompass everything I am learning about OWASP 10
