@@ -12,7 +12,7 @@
 
     <p>This is a note taking app. There is one deliberate vulnerability. There might be more, but I defintely planned only one.</p>
 
-    <p>Please enter a note, specify the title, or don't, then write your note!</p>
+    <p>Please enter a title, your note, then submit!</p>
 
     <form id="noteForm" action ="/notes" method="POST">
         <label for="title">Title:</label><br>
@@ -20,7 +20,7 @@
         <label for="contents">Contents:</label><br>
         <input type="text" id="contents" name="contents"><br>
         <input type="submit" value="Submit">
-    </form> <br>
+    </form>
 
     <!-- 
 
@@ -47,6 +47,8 @@
             }, 100); // Small delay to allow submission
         });
     </script>
+
+    <p>If you remember your note ID, put it here to retrieve it!</p>
 
     <form id= "id" action = "/notes/:id" method = "GET">
         <label for = "ID"> Note ID: </label> <br>

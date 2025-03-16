@@ -69,9 +69,9 @@ export async function getNote(id){
     
     //add this snippet to only return the title and contents
     //this logic destructures the note and only pulls relevant parts from it
-    const {title, contents} = result[0]
+    // const {title, contents} = result[0]
 
-    return {title, contents}
+    return result
 }
 
 // //this version uses parameterized values and prevents SQLi
