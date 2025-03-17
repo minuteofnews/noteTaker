@@ -174,7 +174,7 @@ this ensures that it catches any errors that occur in the preceding middleware o
 */
 app.use((err, req, res, next) => {
     console.error(err.stack)
-    res.status(500).send('EUH!')
+    res.status(500).send('Hmm, it did not like that.')
   })
 
 /*------------------------------------------------------------------------------------------------------------------*/
