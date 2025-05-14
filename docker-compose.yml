@@ -28,7 +28,7 @@ services:
       - MYSQL_DATABASE=notes_app
     restart: unless-stopped
     ports:
-      - "3306:3306"
+      - "3306"
 
 volumes:
   mysql_data:
