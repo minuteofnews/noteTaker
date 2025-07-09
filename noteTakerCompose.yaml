@@ -1,0 +1,26 @@
+# noteTakerCompose.yaml
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      MYSQL_HOST: db
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_DATABASE: 'notes_app'
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: 'notes_app'
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  db-data:
